@@ -1,6 +1,6 @@
 <div align="center">
 
-<img height="180" alt="YoruBot's logo" src="https://i.imgur.com/fLhOFtF.png">
+<img height="180" alt="YoruBot's logo" src="https://i.imgur.com/mOL0KHi.jpeg">
 
 # YoruBot 
 
