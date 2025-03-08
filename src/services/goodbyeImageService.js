@@ -1,6 +1,5 @@
 const { createCanvas, loadImage, registerFont } = require('canvas');
 const path = require('path');
-const fs = require('fs');
 
 // Registrar a fonte personalizada
 const fontPath = path.join(__dirname, '../assets/fonts/BungeeTint-Regular.ttf');
@@ -21,9 +20,10 @@ const templates = [
  * @param {string} avatarURL - URL da foto de perfil do usuário.
  * @param {string} displayName - Nome de exibição do usuário.
  * @param {number} memberCount - Número total de membros no servidor.
+ * @param {Date} joinedAt - Data em que o usuário entrou no servidor.
  * @returns {Promise<Buffer>} - Buffer da imagem gerada.
  */
-async function generateGoodbyeImage(avatarURL, displayName, memberCount) {
+async function generateGoodbyeImage(avatarURL, displayName, memberCount, joinedAt) {
     try {
         // Escolher um template aleatório
         const templateURL = templates[Math.floor(Math.random() * templates.length)];
@@ -67,13 +67,21 @@ async function generateGoodbyeImage(avatarURL, displayName, memberCount) {
         // Definir posições do texto
         const goodbyeText = `Até mais, ${displayName}!`;
         const memberText = `Agora somos ${memberCount} membros.`;
+
+        // Calcular dias no servidor
+        const now = new Date();
+        const daysInServer = Math.floor((now - joinedAt) / (1000 * 60 * 60 * 24)); // Diferença em dias
+        const daysText = `Esteve no servidor por ${daysInServer} dias.`;
+
         const goodbyeTextX = avatarX + avatarSize + 20;
         const goodbyeTextY = avatarY + 40;
         const memberTextY = goodbyeTextY + 50;
+        const daysTextY = memberTextY + 50;
 
         // Desenhar o texto
         ctx.fillText(goodbyeText, goodbyeTextX, goodbyeTextY);
         ctx.fillText(memberText, goodbyeTextX, memberTextY);
+        ctx.fillText(daysText, goodbyeTextX, daysTextY);
 
         // Retornar a imagem como buffer
         return canvas.toBuffer('image/png');

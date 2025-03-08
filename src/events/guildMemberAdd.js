@@ -2,6 +2,14 @@ const { AttachmentBuilder } = require('discord.js');
 const { generateWelcomeImage } = require('../services/welcomeImageService');
 const config = require('../config.json');
 
+// Lista de mensagens de boas-vindas
+const welcomeMessages = [
+    `E aí, {member}! Seja bem-vindo(a) ao nosso servidor! Divirta-se!`,
+    `Fala, {member}! Que bom ter você aqui. Bem-vindo(a) ao servidor!`,
+    `Oi, {member}! Bem-vindo(a) à nossa comunidade! Esperamos que você curta o lugar.`,
+    `Hey, {member}! Bem-vindo(a) ao servidor!`,
+];
+
 module.exports = {
     name: 'guildMemberAdd', // Nome do evento
     async execute(member) {
@@ -22,8 +30,9 @@ module.exports = {
             // Criar um anexo com a imagem gerada
             const attachment = new AttachmentBuilder(buffer, { name: 'welcome.png' });
 
-            // Criar a mensagem de boas-vindas
-            const welcomeMessage = `Olá, ${member.toString()}! Bem-vindo(a) ao servidor! Esperamos que você se divirta aqui.`;
+            // Escolher uma mensagem de boas-vindas aleatória
+            const randomMessage = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+            const welcomeMessage = randomMessage.replace('{member}', member.toString());
 
             // Enviar a mensagem com a imagem
             await welcomeChannel.send({
