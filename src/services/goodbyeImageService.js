@@ -71,7 +71,7 @@ async function generateGoodbyeImage(avatarURL, displayName, memberCount, joinedA
 
         // Define posições do texto
         const goodbyeText = `Até mais, ${displayName}!`;
-        const memberText = `Agora somos ${memberCount} membros.`;
+        const memberText = `Agora somos #${memberCount} membros.`;
         const goodbyeTextX = avatarX + avatarSize + 20;
         const goodbyeTextY = avatarY + 40;
         const memberTextY = goodbyeTextY + 50;

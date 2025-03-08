@@ -65,7 +65,7 @@ async function generateWelcomeImage(avatarURL, displayName, memberCount) {
 
         // Define posições do texto
         const welcomeText = `Bem-vindo(a), ${displayName}!`;
-        const memberText = `Membro nº: ${memberCount}`;
+        const memberText = `Membro #${memberCount}`;
         const welcomeTextX = avatarX + avatarSize + 20;
         const welcomeTextY = avatarY + 40;
         const memberTextY = welcomeTextY + 50;
