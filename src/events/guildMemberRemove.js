@@ -13,8 +13,9 @@ const goodbyeMessages = [
 ];
 
 module.exports = {
-    name: 'guildMemberRemove', // Nome do evento
+    name: 'guildMemberRemove', // Evento de saída de membros
     async execute(member) {
+        // Pega o canal de despedida
         const goodbyeChannel = member.guild.channels.cache.get(config.goodbyeChannelId);
 
         if (!goodbyeChannel) {
@@ -23,21 +24,21 @@ module.exports = {
         }
 
         try {
-            // Gerar a imagem de despedida
+            // Gera a imagem de despedida
             const avatarURL = member.user.displayAvatarURL({ extension: 'png', size: 256 });
             const displayName = member.displayName;
             const memberCount = member.guild.memberCount;
             const joinedAt = member.joinedAt; // Data de entrada do usuário
             const buffer = await generateGoodbyeImage(avatarURL, displayName, memberCount, joinedAt);
 
-            // Criar um anexo com a imagem gerada
+            // Cria o anexo com a imagem
             const attachment = new AttachmentBuilder(buffer, { name: 'goodbye.png' });
 
-            // Escolher uma mensagem de despedida aleatória
+            // Escolhe uma mensagem aleatória e substitui o placeholder
             const randomMessage = goodbyeMessages[Math.floor(Math.random() * goodbyeMessages.length)];
             const goodbyeMessage = randomMessage.replace('{member}', member.toString());
 
-            // Enviar a mensagem com a imagem
+            // Envia a mensagem com a imagem
             await goodbyeChannel.send({
                 content: goodbyeMessage,
                 files: [attachment],
