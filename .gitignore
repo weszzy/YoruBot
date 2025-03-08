@@ -1,0 +1,37 @@
+# node_modules 
+node_modules/
+
+# configuração sensível
+config.json
+
+# ambiente
+.env
+.env.local
+.env.development
+.env.production
+
+# depuração
+debug-welcome.png
+debug-goodbye.png
+
+# logs
+*.log
+
+
+# arquivos da IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# build
+dist/
+build/
+out/
+
+# cache
+.cache/
+.temp/
