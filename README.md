@@ -1,8 +1,8 @@
 <div align="center">
 
-<img height="180" alt="ritsukaBot's logo" src="https://i.imgur.com/fLhOFtF.png">
+<img height="180" alt="YoruBot's logo" src="https://i.imgur.com/fLhOFtF.png">
 
-# ritsukaBot 
+# YoruBot 
 
 [![wakatime](https://wakatime.com/badge/user/bdeb95f3-d0ba-450e-bb85-f5c3aa2006a7/project/65f4e101-757c-4d62-bbfb-d5930c79d868.svg)](https://wakatime.com/)
 
@@ -77,7 +77,7 @@ npm install
 ## 📝 Licença
 
  
-Licenciado sob a **[Licença MIT](https://github.com/weszzy/ritsukaBot/blob/main/LICENSE)**. 
+Licenciado sob a **[Licença MIT](https://github.com/weszzy/YoruBot/blob/main/LICENSE)**. 
 
 
 #### Sinta-se livre para usar e modificar conforme necessário ❤️
