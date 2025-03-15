@@ -35,3 +35,4 @@ out/
 # cache
 .cache/
 .temp/
+.qodo
