@@ -1,15 +1,16 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const config = require('./config.json');
+const fs = require('fs');
 
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMembers, // Intent para detectar novos membros e saídas
+        GatewayIntentBits.GuildMembers,
     ],
 });
 
-// Carregar eventos
-const fs = require('fs');
+
+// Carrega os eventos
 const eventFiles = fs.readdirSync('./src/events').filter(file => file.endsWith('.js'));
 
 for (const file of eventFiles) {
@@ -21,11 +22,7 @@ for (const file of eventFiles) {
     }
 }
 
-// Tratamento de erros globais
-client.on('error', console.error);
-process.on('unhandledRejection', console.error);
-
-// Iniciar o bot
+// Inicia o bot
 client.login(config.token)
     .then(() => console.log('Bot está online!'))
     .catch(error => console.error('Erro ao iniciar o bot:', error));

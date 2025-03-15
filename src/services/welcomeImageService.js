@@ -7,12 +7,9 @@ registerFont(fontPath, { family: 'BungeeTint-Regular' });
 
 // Lista de templates de boas-vindas
 const templates = [
-    'https://i.imgur.com/VfhNShg.png',
-    'https://i.imgur.com/NsHJ45A.png',
-    'https://i.imgur.com/t0NVQr9.png',
-    'https://i.imgur.com/2DyVS1D.png',
-    'https://i.imgur.com/o3hWEjx.png',
-    'https://i.imgur.com/xQYArZh.png',
+    'https://i.imgur.com/TuQrsDl.png',
+    'https://i.imgur.com/59shgkh.png',
+    'https://i.imgur.com/mhofm6M.png',
 ];
 
 /**

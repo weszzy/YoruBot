@@ -7,12 +7,9 @@ registerFont(fontPath, { family: 'BungeeTint-Regular' });
 
 // Lista de templates de despedida
 const templates = [
-    'https://i.imgur.com/tMczTDp.png',
-    'https://i.imgur.com/10LUuzz.png',
-    'https://i.imgur.com/A7fpcXX.png',
-    'https://i.imgur.com/YIThuxP.png',
-    'https://i.imgur.com/b6Y6lpg.png',
-    'https://i.imgur.com/HrYR7or.png',
+    'https://i.imgur.com/om2dOgC.png',
+    'https://i.imgur.com/No92US8.png',
+    'https://i.imgur.com/7Ariu5e.png',
 ];
 
 /**
@@ -67,10 +64,10 @@ async function generateGoodbyeImage(avatarURL, displayName, memberCount, joinedA
         // Calcula dias no servidor
         const now = new Date();
         const daysInServer = Math.floor((now - joinedAt) / (1000 * 60 * 60 * 24)); // Diferença em dias
-        const daysText = `Esteve no servidor por ${daysInServer} dias.`;
+        const daysText = `${displayName} esteve no servidor por ${daysInServer} dias.`;
 
         // Define posições do texto
-        const goodbyeText = `Até mais, ${displayName}!`;
+        const goodbyeText = `Até mais!`;
         const memberText = `Agora somos #${memberCount} membros.`;
         const goodbyeTextX = avatarX + avatarSize + 20;
         const goodbyeTextY = avatarY + 40;
@@ -79,8 +76,8 @@ async function generateGoodbyeImage(avatarURL, displayName, memberCount, joinedA
 
         // Desenha o texto
         ctx.fillText(goodbyeText, goodbyeTextX, goodbyeTextY);
-        ctx.fillText(memberText, goodbyeTextX, memberTextY);
         ctx.fillText(daysText, goodbyeTextX, daysTextY);
+        ctx.fillText(memberText, goodbyeTextX, memberTextY);
 
         // Retorna a imagem como buffer
         return canvas.toBuffer('image/png');
